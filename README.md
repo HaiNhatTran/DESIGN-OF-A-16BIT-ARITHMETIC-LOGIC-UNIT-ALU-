@@ -116,3 +116,15 @@ end
 a[15] != b[15]: Ensures the two numbers have different signs.
 
 result[15] != a[15]: The result does not have the expected sign based on a.
+
+![image](https://github.com/user-attachments/assets/07b44b46-c4dd-4b88-b3c9-ceacc74b7807)
+
+# 7.Waweform
+
+1.Total test
+
+![image](https://github.com/user-attachments/assets/74aa9fb7-5092-44eb-b64c-52f9564a673c)
+
+2.Waweform
+![image](https://github.com/user-attachments/assets/5030af43-576e-48f0-af76-54053a045083)
+
