@@ -1,0 +1,74 @@
+// Code your design here
+module alu_16bit (
+  input  logic [15:0] a,          // So hang thu 1
+  input  logic [15:0] b,          // so hang thu 2
+  input  logic [3:0] opcode,      // ma lenh chon phep tinh
+  output logic [15:0] result,     // Ket qua tuong ung voi cac phep tinh
+  output logic carry_out,         // Carry_out cua phep cong va phep tru
+  output logic zero,              // Zero flag
+  output logic negative,          // Negative flag
+  output logic overflow           // Overflow flag
+);
+
+    // Ma lenh chon phep tinh (opcode)
+    localparam ADD = 4'b0000, 
+               SUB = 4'b0001, 
+               AND = 4'b0010, 
+               OR  = 4'b0011, 
+               XOR = 4'b0100,
+               NOT = 4'b0101,
+               SLL = 4'b0110,   // Shift Left Logical
+               SRL = 4'b0111;   // Shift Right Logical
+
+    always_comb begin
+        // Khoi tao gia tri
+        result = 16'b0;
+        carry_out = 0;
+        zero = 0;
+        negative = 0;
+        overflow = 0;  // Khoi tao overflow
+
+        case (opcode)
+            ADD: begin  // phep cong
+              {carry_out, result} = a + b;  // Phep cong voi carry_out
+              // Kiem tra phep overflow trong phep cong
+              if ((a[15] == b[15]) && (result[15] != a[15])) begin
+                  overflow = 1;
+              end
+            end
+            SUB: begin  // phep tru
+              {carry_out, result} = a - b;  // Phepp tru voi carry_out
+              // Kiem tra phep overflow trong phep tru
+              if ((a[15] != b[15]) && (result[15] != a[15])) begin
+                  overflow = 1;
+              end
+            end
+            AND: begin
+                result = a & b;  // Bitwise AND
+            end
+            OR: begin
+                result = a | b;  // Bitwise OR
+            end
+            XOR: begin
+                result = a ^ b;  // Bitwise XOR
+            end
+            NOT: begin
+                result = ~a;     // Bitwise NOT (negation of a)
+            end
+            SLL: begin
+                result = a << 1;  // Shift left by 1
+            end
+            SRL: begin
+                result = a >> 1;  // Shift right by 1
+            end
+            default: begin
+                result = 16'b0;   // Default case, no operation
+            end
+        endcase
+        
+        // Flags
+        zero = (result == 16'b0);       // Zero flag
+        negative = result[15];          // Negative flag (sign bit of result)
+    end
+
+endmodule
