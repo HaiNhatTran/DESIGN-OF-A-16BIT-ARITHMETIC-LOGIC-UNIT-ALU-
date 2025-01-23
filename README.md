@@ -3,14 +3,14 @@ The 16-bit Arithmetic Logic Unit (ALU) is a fundamental component in digital sys
 
 # 2.FUNCTIONALITY
 The ALU performs the following basic arithmetic and logic operations:
-  ADD: Addition of two 16-bit numbers.
-  SUB: Subtraction of two 16-bit numbers.
-  AND: Bitwise AND between two 16-bit numbers.
-  OR: Bitwise OR between two 16-bit numbers.
-  XOR: Bitwise XOR between two 16-bit numbers.
-  NOT: Bitwise NOT on the first 16-bit number.
-  SLL: Shift left logical by one bit.
-  SRL: Shift right logical by one bit.
+- ADD: Addition of two 16-bit numbers.
+- SUB: Subtraction of two 16-bit numbers.
+- AND: Bitwise AND between two 16-bit numbers.
+- OR: Bitwise OR between two 16-bit numbers.
+- XOR: Bitwise XOR between two 16-bit numbers.
+- NOT: Bitwise NOT on the first 16-bit number.
+- SLL: Shift left logical by one bit.
+- SRL: Shift right logical by one bit.
 The ALU runs at a clock frequency of 100 MHz, ensuring high-speed computation in applications requiring efficient arithmetic and logic processing.
 
 # 3.Block Diagram
